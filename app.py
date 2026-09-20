@@ -1,21 +1,31 @@
+# Import the streamlit library for creating the ui for the app.
 import streamlit as st
 
 
-# Function to check if a number is prime
+# Function to check if a number is prime or not using the Primality Testing for the given number
 def is_prime(n):
     if n <= 1:
         return False
+    # loop from 2 to square-root of the number.
+    # Add 1 to include the number.
     for i in range(2, int(n**0.5) + 1):
+        # If the number has a factor,
+        # then the modulo of the number will return 0
+        # Which means that the number is not a prime number
         if n % i == 0:
             return False
     return True
 
 
-# Function to get primes in a range
+# Function to get the prime numbers in a range
+# This function will use the is_prime() number function as defined above
 def get_primes_in_range(start, end):
     primes = []
+    # Loop through the starting and ending number to find the Prime numbers
     for num in range(start, end + 1):
+        # Check if the number is a prime or not using the Primality Testing
         if is_prime(num):
+            # If it is a prime number then add it to the array for display.
             primes.append(num)
     return primes
 
